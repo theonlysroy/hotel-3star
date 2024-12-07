@@ -1,0 +1,15 @@
+meta {
+  name: test multer
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://127.0.0.1:8000/upload
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  image: @file(postman-cloud:///1ef90600-35fb-49c0-98fe-e2c7c84b8717)
+}

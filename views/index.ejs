@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Management</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      /* Add basic styles for layout */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+      }
+      .navbar a:hover {
+        background-color: #575757;
+      }
+      .hero {
+        background: url("/images/hotel-hero.jpg") no-repeat center center/cover;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .features {
+        display: flex;
+        justify-content: space-around;
+        padding: 40px 0;
+        background-color: #f7f7f7;
+      }
+      .feature {
+        text-align: center;
+      }
+      .feature img {
+        max-width: 150px;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="navbar">
+      <a href="/">Home</a>
+      <a href="/rooms">Rooms</a>
+      <a href="/bookings">Bookings</a>
+      <a href="/signup">Sign Up</a>
+      <a href="/signin">Sign In</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Welcome to Our Hotel Management System</h1>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+      <div class="feature">
+        <img src="/images/room-icon.png" alt="Rooms" />
+        <h2>Rooms</h2>
+        <p>Explore our rooms and choose the best for your stay.</p>
+      </div>
+      <div class="feature">
+        <img src="/images/booking-icon.png" alt="Bookings" />
+        <h2>Bookings</h2>
+        <p>Make, view, and manage your hotel bookings with ease.</p>
+      </div>
+      <div class="feature">
+        <img src="/images/support-icon.png" alt="Support" />
+        <h2>Support</h2>
+        <p>Our team is here to assist you 24/7 for any queries.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2024 Hotel Management. All rights reserved.</p>
+    </div>
+  </body>
+</html>

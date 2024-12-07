@@ -1,0 +1,20 @@
+meta {
+  name: -avg-rating
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{API_URL}}/review/avg-rating?startDate=2024-11-20
+  body: none
+  auth: bearer
+}
+
+params:query {
+  startDate: 2024-11-20
+  ~endDate: 2024-11-21
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}

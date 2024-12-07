@@ -1,0 +1,15 @@
+meta {
+  name: -bookings-vacation-graph -vacation data-
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{API_URL}}/graph/bookings-creation-graph
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}

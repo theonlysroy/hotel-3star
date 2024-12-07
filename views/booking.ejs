@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Bookings</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+      }
+      .navbar a:hover {
+        background-color: #575757;
+      }
+      .hotel-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+      }
+      .hotel-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 300px;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .hotel-card img {
+        width: 100%;
+        border-radius: 8px;
+        max-height: 200px;
+        object-fit: cover;
+      }
+      .hotel-card h3 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+      }
+      .hotel-card p {
+        color: #666;
+      }
+      .book-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .book-btn:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="navbar">
+      <a href="/">Home</a>
+      <a href="/rooms">Rooms</a>
+      <a href="/bookings">Bookings</a>
+      <a href="/signup">Sign Up</a>
+      <a href="/signin">Sign In</a>
+    </div>
+
+    <!-- Hotel Cards Section -->
+    <div class="hotel-cards">
+      <% if (hotels && hotels.length > 0) { %> <% hotels.forEach(hotel => { %>
+      <div class="hotel-card">
+        <img src="<%= hotel.imageUrl %>" alt="<%= hotel.name %>" />
+        <h3><%= hotel.name %></h3>
+        <p><%= hotel.description %></p>
+        <p><strong>Price:</strong> $<%= hotel.pricePerNight %> / night</p>
+        <a href="/book/<%= hotel.id %>" class="book-btn">Book Now</a>
+      </div>
+      <% }) %> <% } else { %>
+      <p>No hotels available at the moment.</p>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+meta {
+  name: -create -create a room-
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{API_URL}}/room
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "roomNumber": "HC-102",
+    "roomType": "67357bf4a65583344375c4e8"
+  }
+}

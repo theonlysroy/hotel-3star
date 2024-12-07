@@ -1,0 +1,25 @@
+meta {
+  name: - -create a new booking-
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{API_URL}}/booking
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}
+
+body:json {
+  {
+    "email": "one@sroy.com",
+    "name": "One",
+    "phoneNumber": "1111111111",
+    "address": "Kolkata",
+    "roomId": "6735806a7e5d82f97282ebbd"
+  }
+}

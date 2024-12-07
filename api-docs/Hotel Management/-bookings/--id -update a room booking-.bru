@@ -1,0 +1,15 @@
+meta {
+  name: --id -update a room booking-
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{API_URL}}/booking/6735e1de17b6411ec7e0cba3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}

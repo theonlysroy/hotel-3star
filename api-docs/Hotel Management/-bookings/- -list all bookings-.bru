@@ -1,0 +1,19 @@
+meta {
+  name: - -list all bookings-
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{API_URL}}/booking
+  body: none
+  auth: bearer
+}
+
+headers {
+  ~Authorization: 
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}

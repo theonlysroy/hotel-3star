@@ -1,0 +1,50 @@
+meta {
+  name: -manager-login -manager login-
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://127.0.0.1:8000/auth/manager/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "admin@sroy.com",
+    "password": "admin123"
+  }
+}
+
+tests {
+  const response = res.getBody()
+  bru.setEnvVar("MANAGER_TOEKN", response.data.accessToken)
+  
+  test("Response status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  
+  test("Response time is less than 200ms", function () {
+    expect(res.getResponseTime()).to.be.below(200);
+  });
+  
+  
+  test("Response has the required fields", function () {
+      const responseData = res.getBody();
+      
+      expect(responseData).to.be.an('object');
+      expect(responseData).to.have.property('success');
+      expect(responseData).to.have.property('message');
+      expect(responseData).to.have.property('data');
+  });
+  
+  
+  test("Data object should have accessToken property", function () {
+    const responseData = res.getBody();
+  
+    expect(responseData.data).to.have.property('accessToken');
+  });
+  
+}

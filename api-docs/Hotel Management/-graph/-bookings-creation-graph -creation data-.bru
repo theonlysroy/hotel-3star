@@ -1,0 +1,15 @@
+meta {
+  name: -bookings-creation-graph -creation data-
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{API_URL}}/graph/bookings-creation-graph
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}

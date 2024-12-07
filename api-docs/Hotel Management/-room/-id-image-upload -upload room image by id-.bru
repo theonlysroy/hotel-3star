@@ -1,0 +1,15 @@
+meta {
+  name: -id-image-upload -upload room image by id-
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{API_URL}}/room/image-upload/67518bd52aed70e8c5adedb6
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  image: @file(/home/bit1079/swagatam-roy/screenshots/hotel-room4.jpg)
+}

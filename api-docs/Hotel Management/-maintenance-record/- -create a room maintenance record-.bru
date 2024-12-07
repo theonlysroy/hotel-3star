@@ -1,0 +1,22 @@
+meta {
+  name: - -create a room maintenance record-
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{API_URL}}/maintenance-record
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}
+
+body:json {
+  {
+    "roomId": "6735806a7e5d82f97282ebbd",
+    "purpose": "Bathroom Fittings"
+  }
+}

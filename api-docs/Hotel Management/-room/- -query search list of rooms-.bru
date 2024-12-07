@@ -1,0 +1,16 @@
+meta {
+  name: - -query search list of rooms-
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{API_URL}}/room
+  body: none
+  auth: none
+}
+
+params:query {
+  ~isUnderMaintenance: true
+  ~isOccupied: false
+}

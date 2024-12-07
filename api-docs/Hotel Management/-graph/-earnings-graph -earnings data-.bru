@@ -1,0 +1,30 @@
+meta {
+  name: -earnings-graph -earnings data-
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{API_URL}}/graph/earnings-graph
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{MANAGER_TOEKN}}
+}
+
+tests {
+  test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("Response time is less than 100ms", function() {
+    expect(res.getResponseTime()).to.be.below(100)
+  })
+  
+  test("Response body to be JSON", function() {
+    const responseData = res.getBody()
+    expect(typeof responseData).to.be.equal("object")
+  })
+}

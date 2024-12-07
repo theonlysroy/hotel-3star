@@ -1,0 +1,859 @@
+{
+	"info": {
+		"_postman_id": "56b43b0b-09a5-4eb2-b307-6b092286d9e1",
+		"name": "Hotel Management",
+		"description": "# Room Types\n\n`67357ac9a65583344375c4e0` : Tv ✅\n\n`67357ae4a65583344375c4e4` : AC , Tv, Balcony ✅\n\n`67357bf4a65583344375c4e8` : AC, Tv, Bathtub, Balcony ✅\n\n`67357d0b5690f91185ad7c8e` : Tv, Balcony ✅\n\n# Rooms\n\n`HC-100 67357ce35690f91185ad7c8a`: AC , Tv, Balcony ✅ room: 2\n\n`HC-101 6735806a7e5d82f97282ebbd` : Tv, Balcony ✅ room: 1\n\n`HC-102 673589aa2a30a35607be591e` : AC, Tv, Bathtub, Balcony ✅ room:2\n\n# Bookings\n\n`6735853e549897d34c3d195f` : [sroy@sroy.com](https://mailto:sroy@sroy.com), HC-101\n\n`673586848617e216c25a09a4` : [eun@sroy.com](https://mailto:eun@sroy.com), HC-100\n\n`6735e1de17b6411ec7e0cba3` : one@sroy.com, HC-101\n\n# Maintenance Records\n\n`673589c72a30a35607be5925` HC-102 in progress\n\n`6735dfab2e5ea7cacd85cf6a` HC-101 in progress",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38868092"
+	},
+	"item": [
+		{
+			"name": "/room-type",
+			"item": [
+				{
+					"name": "/ [list all room types]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/room-type",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/create [create room type]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"isAirconditioned\": false,\n  \"bedroomCount\": 1,\n  \"hasTv\": true,\n  \"hasBathtub\": false,\n  \"hasBalcony\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/room-type",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/:id [delete room type]",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/room-type/672cabf9affc946812cccfa8",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room-type",
+								"672cabf9affc946812cccfa8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/room",
+			"item": [
+				{
+					"name": "/ [query search list of rooms]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/room",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room"
+							],
+							"query": [
+								{
+									"key": "isUnderMaintenance",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "isOccupied",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/create [create a room]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"roomNumber\": \"HC-102\",\n  \"roomType\": \"67357bf4a65583344375c4e8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/room",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/id [update room by id]",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/bit1079/swagatam-roy/screenshots/hotel-room3.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/room/67518bf52aed70e8c5adedbd",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room",
+								"67518bf52aed70e8c5adedbd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/id/image-upload [upload room image by id]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/bit1079/swagatam-roy/screenshots/hotel-room4.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/room/image-upload/67518bd52aed70e8c5adedb6",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room",
+								"image-upload",
+								"67518bd52aed70e8c5adedb6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ [list of all rooms]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/room",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/id/timeline [get room timeline details]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/room/timeline?roomId=6735806a7e5d82f97282ebbd",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room",
+								"timeline"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "6735806a7e5d82f97282ebbd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/gen-timeline?roomId= [get generalized room timeline]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/room/gen-timeline?roomId=6735806a7e5d82f97282ebbd",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"room",
+								"gen-timeline"
+							],
+							"query": [
+								{
+									"key": "roomId",
+									"value": "6735806a7e5d82f97282ebbd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/bookings",
+			"item": [
+				{
+					"name": "/ [list all bookings]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/booking",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ [create a new booking]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"one@sroy.com\",\n  \"name\": \"One\",\n  \"phoneNumber\": \"1111111111\",\n  \"address\": \"Kolkata\",\n  \"roomId\": \"6735806a7e5d82f97282ebbd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/booking",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/:id [update a room booking]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/booking/6735e1de17b6411ec7e0cba3",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"booking",
+								"6735e1de17b6411ec7e0cba3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/:id [delete a room booking]",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/booking/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"booking",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/:id/vacate [vacate a booking]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/booking/6736fbc23ffaf32d88c6200e/vacate",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"booking",
+								"6736fbc23ffaf32d88c6200e",
+								"vacate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/:id/review [review for a particular booking]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 2,\n  \"comment\": \"Not satisfied with hotel services\",\n  \"suggestions\": \"Food quality needs to be improved\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/booking/673586848617e216c25a09a4/review",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"booking",
+								"673586848617e216c25a09a4",
+								"review"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/maintenance-record",
+			"item": [
+				{
+					"name": "/ [list all maintenance records]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/maintenance-record",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"maintenance-record"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ [create a room maintenance record]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"roomId\": \"6735806a7e5d82f97282ebbd\",\n  \"purpose\": \"Bathroom Fittings\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/maintenance-record",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"maintenance-record"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/:id [complete a maintenance record]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/maintenance-record/6735dfab2e5ea7cacd85cf6a",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"maintenance-record",
+								"6735dfab2e5ea7cacd85cf6a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/auth",
+			"item": [
+				{
+					"name": "/manager/login [manager login]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json()",
+									"pm.environment.set(\"MANAGER_TOEKN\", response.data.accessToken)",
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.property('success');",
+									"    pm.expect(responseData).to.have.property('message');",
+									"    pm.expect(responseData).to.have.property('data');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Data object should have accessToken property\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  pm.expect(responseData.data).to.have.property('accessToken');",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@sroy.com\",\n  \"password\": \"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/auth/manager/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"manager",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/review",
+			"item": [
+				{
+					"name": "/avg-rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/review/avg-rating?startDate=2024-11-20",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"review",
+								"avg-rating"
+							],
+							"query": [
+								{
+									"key": "endDate",
+									"value": "2024-11-21",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2024-11-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/:id [delete a review by id]",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/review/:reviewId",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"review",
+								":reviewId"
+							],
+							"variable": [
+								{
+									"key": "reviewId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/graph",
+			"item": [
+				{
+					"name": "/earnings-graph [earnings data]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 100ms\", function() {",
+									"  pm.expect(pm.response.responseTime).to.be.below(100)",
+									"})",
+									"",
+									"pm.test(\"Response body to be JSON\", function() {",
+									"  const responseData = pm.response.json()",
+									"  pm.expect(typeof responseData).to.be.equal(\"object\")",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/graph/earnings-graph",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"graph",
+								"earnings-graph"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bookings-creation-graph [creation data]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/graph/bookings-creation-graph",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"graph",
+								"bookings-creation-graph"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bookings-vacation-graph [vacation data]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{MANAGER_TOEKN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/graph/bookings-creation-graph",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"graph",
+								"bookings-creation-graph"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health check route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/health",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Index route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test multer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "postman-cloud:///1ef90600-35fb-49c0-98fe-e2c7c84b8717"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/upload",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

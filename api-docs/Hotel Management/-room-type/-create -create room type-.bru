@@ -1,0 +1,21 @@
+meta {
+  name: -create -create room type-
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{API_URL}}/room-type
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "isAirconditioned": false,
+    "bedroomCount": 1,
+    "hasTv": true,
+    "hasBathtub": false,
+    "hasBalcony": true
+  }
+}

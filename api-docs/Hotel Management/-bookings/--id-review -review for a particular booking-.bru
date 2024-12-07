@@ -1,0 +1,19 @@
+meta {
+  name: --id-review -review for a particular booking-
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://127.0.0.1:8000/api/v1/booking/673586848617e216c25a09a4/review
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "rating": 2,
+    "comment": "Not satisfied with hotel services",
+    "suggestions": "Food quality needs to be improved"
+  }
+}

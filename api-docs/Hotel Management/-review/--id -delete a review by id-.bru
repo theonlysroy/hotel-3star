@@ -1,0 +1,15 @@
+meta {
+  name: --id -delete a review by id-
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{API_URL}}/review/:reviewId
+  body: none
+  auth: none
+}
+
+params:path {
+  reviewId: 
+}
