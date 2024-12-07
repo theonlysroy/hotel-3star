@@ -9,3 +9,6 @@
 - Fastify
 - Mongodb
 - Mongoose
+- JSONWebTokens
+- React
+- Tailwindcss
