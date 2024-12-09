@@ -26,9 +26,10 @@ const bookingSchema = new Schema(
       enum: ["Booked", "Ongoing", "Completed"],
       default: "Booked",
     },
+    isPreBooking: { type: Boolean, default: false },
     cost: { type: Number },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Booking = model("booking", bookingSchema);

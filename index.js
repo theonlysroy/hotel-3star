@@ -12,12 +12,6 @@ async function start() {
     app.listen({ port }, () => {
       console.log(`Server @ http://localhost:${port}`);
     });
-    // ["SIGINT", "SIGTERM"].forEach((signal) => {
-    //   process.on(signal, async () => {
-    //     await app.close();
-    //     process.exit(0);
-    //   });
-    // });
   } catch (err) {
     app.log.error(err);
     process.exit(1);

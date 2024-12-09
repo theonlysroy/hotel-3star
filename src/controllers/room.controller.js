@@ -25,15 +25,14 @@ const createRoom = async (request, reply) => {
   const validRoomType = await RoomType.findById(roomType).select("-_id -__v");
   if (!validRoomType) throw new ApiError(404, "Invalid room type id given");
 
-  const imageData = await request.file();
-  let coverPhoto;
-  if (imageData) {
-    coverPhoto = await fileUploader(imageData);
-  }
+  // const imageData = await request.file();
+  // let coverPhoto;
+  // if (imageData) {
+  //   coverPhoto = await fileUploader(imageData);
+  // }
   const room = await Room.create({
     roomNumber,
     roomTypeId: roomType,
-    coverPhoto,
   });
 
   const createdRoom = await Room.findById(room._id).select(

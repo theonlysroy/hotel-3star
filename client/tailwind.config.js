@@ -5,6 +5,8 @@ export default {
     extend: {
       backgroundImage: {
         hotelBg: "url('/hotelBg.jpg')",
+        hotelBg2: "url('/hotelBg2.jpg')",
+        hotelBg3: "url('/hotelBg3.jpg')",
       },
     },
   },

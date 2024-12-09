@@ -43,7 +43,6 @@ export default function RoomModal({ closeModal, setReload, roomTypes }) {
       <div className="bg-white p-6 rounded-lg shadow-lg w-96">
         <h2 className="text-xl font-semibold mb-4">Add New Room</h2>
 
-        {/* Bedroom Count */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
             Room Number

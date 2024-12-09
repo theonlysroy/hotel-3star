@@ -4,7 +4,7 @@ export default function HeroSection() {
       <h1 className="text-8xl font-semibold text-center text-[#f7f7f7]">
         Welcome to Hotel 3Star
       </h1>
-      <p className="font-mono font-semibold text-[#f7f7f7] drop-shadow-[0px_0px_17px_rgba(255,0,123,1)] p-4 tracking-widest italic text-2xl">
+      <p className="font-mono font-semibold text-[#f7f7f7] drop-shadow-[0px_0px_14px_rgba(255,0,123,1)] p-4 tracking-widest italic text-3xl">
         Says Hotel, feels like HOME ...
       </p>
     </div>

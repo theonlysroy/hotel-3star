@@ -31,6 +31,7 @@ const roomSchema = new Schema(
       ref: "Guest",
       default: null,
     },
+    occupiedDates: [{ type: Date }],
     isDeleted: { type: Boolean },
   },
   { timestamps: true },

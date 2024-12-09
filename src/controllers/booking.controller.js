@@ -10,6 +10,7 @@ import createCSVFromJSONData from "../utils/jsonToCSV.js";
 import path from "node:path";
 import { readFile } from "node:fs";
 import { BASE_URL } from "../../constants.js";
+import mongoose from "mongoose";
 
 // create booking
 /**
@@ -261,6 +262,65 @@ const downloadBookingsData = async (request, reply) => {
   return reply;
 };
 
+/**
+ * @function downloadBookingsDataAsPDF
+ * @route GET /api/v1/booking/generate-pdf
+ */
+const downloadBookingsDataAsPDF = async (request, reply) => {
+  // load the html (ejs) template
+  // add dynamic data to it
+  // create PDF document (puppeteer / pdfkit)
+  // add the content to the document
+  // save the pdf
+  // send the pdf as streams
+};
+
+/**
+ * @function createPreBooking
+ * @route POST /api/v1/booking/pre
+ * @requires Object {check in date, check out date, name, email, phone number, address}
+ * @returns 201 if success
+ * @returns 500 if error
+ */
+const createPreBooking = async (request, reply) => {
+  // get request body data (date, roomNumber, name, email, phone number, address)
+  const {
+    checkInDate,
+    checkOutDate,
+    roomId,
+    name,
+    email,
+    phoneNumber,
+    address,
+  } = request.body;
+  if (
+    [checkInDate, checkOutDate, name, email, phoneNumber, address].some(
+      (field) => field?.trim() === undefined || field?.trim() === "",
+    )
+  )
+    throw new ApiError(
+      404,
+      "Request body is missing [checkInDate, checkOutDate, name, email, phoneNumber, address]",
+    );
+  // find the room number availability
+  const room = await Room.findById(roomId);
+  if (!room) throw new ApiError(404, "Invalid room id");
+
+  if (room?.occupiedDates?.includes(checkInDate))
+    throw new ApiError(400, "Room is already booked for the requested date");
+
+  // update the occupied dates of room
+  room.occupiedDates.push(checkInDate);
+  await room.save({ validateBeforeSave: false });
+
+  // create a booking  (isPreBooking: true)
+  const booking = await Booking.create();
+  // create stripe checkout session (mode: "payment")
+  //    -> account
+  //    -> save card details after payment
+  // send success / failure response
+};
+
 export {
   createBooking,
   getAllBookings,
@@ -268,4 +328,6 @@ export {
   deleteBookingById,
   vacateBookingById,
   downloadBookingsData,
+  downloadBookingsDataAsPDF,
+  createPreBooking,
 };
